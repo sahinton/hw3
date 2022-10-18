@@ -2,6 +2,7 @@
 #include <fstream>
 #include <functional>
 #include "llrec.h"
+#include "stack.h"
 using namespace std;
 
 /**
@@ -66,6 +67,48 @@ void dealloc(Node* head)
 //   Add any helper functions or
 //   function object struct declarations
 // -----------------------------------------------
+struct greaterThan10{
+	bool operator()(int pointerVal){
+		if (10 < pointerVal){
+			return true;
+		}
+		else if (10 > pointerVal){
+			return false;
+		}
+		else{
+			return false;
+		}
+	}
+};
+
+struct lessThan10{
+	bool operator()(int pointerVal){
+		if (10 > pointerVal){
+			return true;
+		}
+		else if (10 < pointerVal){
+			return false;
+		}
+		else{
+			return false;
+		}
+	}
+};
+
+struct Even{
+	bool operator()(int value){
+		if (value % 2 == 0){
+			return true;
+		}
+		else if (value % 2 != 0){
+			return false;
+		}
+		else{
+			return false;
+		}
+	}
+};
+
 
 
 
@@ -82,14 +125,49 @@ int main(int argc, char* argv[])
     // Feel free to update any code below this point
     // -----------------------------------------------
     Node* head = readList(argv[1]);
+    Node* smaller;
+    Node* larger;
     cout << "Original list: ";
     print(head);
 
     // Test out your linked list code
+    llpivot(head, smaller, larger, 10);
+    cout << endl;
+    if (smaller){
+        print(smaller);
+    }
+    cout << endl;
+    if(larger){
+        print(larger);
+    }
+
+		greaterThan10 filter;
+		Node* temp = llfilter(head, filter);
+		cout << "All values greater than 10 filtered out: ";
+		print(temp);
+
+		Stack<int> myStack;
+		cout << myStack.empty() << endl;
+		//myStack.pop();
+		myStack.push(5);
+		myStack.push(6);
+		myStack.push(7);
+		myStack.push(8);
+		myStack.push(9);
+		cout << myStack.size() << endl;
+		cout << myStack.top() << endl;
+		myStack.pop();
+		cout << myStack.top() << endl;
+		cout << myStack.size() << endl;
+		cout << myStack.empty() << endl;
+		myStack.pop();
+		myStack.pop();
+		myStack.pop();
+		myStack.pop();
+		myStack.top();
+		myStack.pop();
 
 
-
-    
     return 0;
 
 }
