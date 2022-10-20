@@ -2,7 +2,7 @@
 #define CIRCUIT_H
 #include <vector>
 
-#include "heap2.h"
+#include "heap.h"
 #include "event.h"
 #include "gate.h"
 

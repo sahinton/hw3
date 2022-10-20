@@ -5,7 +5,7 @@
 #include <fstream>
 
 //#include "../heap.h" //bring in your heap implementation
-#include "heap2.h"
+#include "heap.h"
 #include "wire.h"
 #include "gate.h"
 #include "circuit.h"
