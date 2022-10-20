@@ -102,7 +102,7 @@ Event* NotGate::update(uint64_t current_time)
 	for(auto w : m_inputs)
 	{
 		char in = w->getState();
-		if(in == '1')
+		if(in == '1') //set to the opposite
 		{
 			state = '0';
 			break;

@@ -112,7 +112,7 @@ bool Circuit::parse(const char* fname)
                 //Add code here to support the NOT gate type
                 if(s_type == "NOT")
                 {
-                    std::string s_in1;
+                    std::string s_in1; //two wires
                     getline(ss, s_in1, ',');
                     std::string s_output;
                     getline(ss, s_output, ',');
