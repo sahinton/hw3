@@ -12,7 +12,7 @@ void llpivot(Node *&head, Node *&smaller, Node *&larger, int pivot){
 		larger = head;
 		return;
 	}
-	if (head->val <= pivot){
+	if (head->val <= pivot){ //tail recursion
 		smaller = head;
 		llpivot(head->next, smaller->next, larger, pivot);	
 	}

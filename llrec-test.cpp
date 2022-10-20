@@ -164,8 +164,8 @@ int main(int argc, char* argv[])
 		myStack.pop();
 		myStack.pop();
 		myStack.pop();
-		myStack.top();
-		myStack.pop();
+		dealloc(smaller);
+		dealloc(larger);
 
 
     return 0;
