@@ -1,6 +1,6 @@
 # hw3
 Starr Hinton
-3244063909
+
 sahinton@usc.edu
 
 llrec holds a function that splits a linked list into two based on a pivot, and one that filters a linked list based on a comparator.
