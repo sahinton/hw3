@@ -83,19 +83,23 @@ Node* llfilter(Node* head, Comp pred)
     // Provide your implementation below
     //*********************************************
 	if (head == nullptr){ 
+		//std::cout << "head was now null" << std::endl;
 		return nullptr;
 	}
+	llfilter(head->next, pred); //head recursion, filter on the way back
 	if (pred(head->val)){
-		llfilter(head->next, pred); //head recursion, filter on the way back
-		return nullptr;
-		delete head;
+		head = head->next;
+		return head;
+		
 
 	}
 	else{
-		llfilter(head->next, pred);
+		//llfilter(head->next, pred);
+		//head->next = ;
 		return head;
 	}
 
 }
+
 
 #endif

@@ -81,6 +81,13 @@ struct greaterThan10{
 	}
 };
 
+struct IsEven
+{
+    bool operator()(int num) {
+        return (num % 2) == 0;
+    }
+};
+
 struct lessThan10{
 	bool operator()(int pointerVal){
 		if (10 > pointerVal){
@@ -131,19 +138,26 @@ int main(int argc, char* argv[])
     print(head);
 
     // Test out your linked list code
-    llpivot(head, smaller, larger, 10);
+    llpivot(head, smaller, larger, 1);
     cout << endl;
     if (smaller){
+			cout << "smaller" << endl;
         print(smaller);
     }
     cout << endl;
     if(larger){
+			cout << "larger" << endl;
         print(larger);
     }
+		cout << endl;
+    if(head){
+			cout << "head" << endl;
+        print(head);
+    }
 
-		greaterThan10 filter;
-		Node* temp = llfilter(head, filter);
-		cout << "All values greater than 10 filtered out: ";
+		IsEven filter;
+		Node* temp = llfilter(larger, filter);
+		cout << "All even values filtered out: ";
 		print(temp);
 
 		Stack<int> myStack;
@@ -160,12 +174,12 @@ int main(int argc, char* argv[])
 		cout << myStack.top() << endl;
 		cout << myStack.size() << endl;
 		cout << myStack.empty() << endl;
-		myStack.pop();
+		/*myStack.pop();
 		myStack.pop();
 		myStack.pop();
 		myStack.pop();
 		dealloc(smaller);
-		dealloc(larger);
+		dealloc(larger);*/
 
 
     return 0;
